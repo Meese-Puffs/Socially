@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.widget.EditText
 import android.widget.ImageView
 import android.text.InputType
+import android.widget.Button
 import android.widget.TextView
 import android.widget.LinearLayout
 import androidx.core.view.ViewCompat
@@ -26,6 +27,13 @@ class FourthActivity : AppCompatActivity() {
 
         LogIn.setOnClickListener{
             val intent = Intent(this, FifthActivity::class.java)
+            startActivity(intent)
+        }
+
+        val backButton : Button = findViewById(R.id.backButton)
+
+        backButton.setOnClickListener{
+            val intent = Intent(this, ThirdActivity::class.java)
             startActivity(intent)
         }
 

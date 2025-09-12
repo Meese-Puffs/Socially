@@ -78,6 +78,18 @@
         android:layout_marginStart="270dp"
         android:layout_marginTop="80dp"/>
 
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="80dp"/>
+
     <ImageView
         android:id="@+id/info"
         android:layout_width="25dp"

@@ -30,5 +30,12 @@ class SecondActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val back = findViewById<ImageView>(R.id.arrow)
+
+        back.setOnClickListener{
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }

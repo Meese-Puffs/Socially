@@ -29,6 +29,17 @@
         <activity android:name=".EighthActivity" />
         <activity android:name=".NinthActivity" />
         <activity android:name=".TenthActivity" />
+        <activity android:name=".EleventhActivity" />
+        <activity android:name=".TwelfthActivity" />
+        <activity android:name=".ThirteenthActivity" />
+        <activity android:name=".FourteenthActivity" />
+        <activity android:name=".FifteenthActivity" />
+        <activity android:name=".SixteenthActivity" />
+        <activity android:name=".SeventeenthActivity" />
+        <activity android:name=".EighteenthActivity" />
+        <activity android:name=".NinteenthActivity" />
+        <activity android:name=".TwentiethActivity" />
+        <activity android:name=".TwentyFirstActivity" />
     </application>
 
 </manifest>

@@ -41,6 +41,7 @@
             android:id="@+id/arrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:clickable="true"
             android:src="@drawable/arrow"
             android:rotation="180"
             app:tint="#FFFFFF"

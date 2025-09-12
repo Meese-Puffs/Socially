@@ -364,7 +364,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="660dp"/>
+        android:layout_marginTop="680dp"/>
+
+    <ImageView
+        android:id="@+id/Heart"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/like"
+        app:tint="@color/light_magenta"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="238dp"
+        android:layout_marginTop="693dp"/>
 
     <Button
         android:id="@+id/homebutton"
@@ -373,7 +385,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="670dp"
+        android:layout_marginTop="690dp"
         android:background="@android:color/transparent"
         />
 
@@ -384,7 +396,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginLeft="100dp"
-        android:layout_marginTop="670dp"
+        android:layout_marginTop="690dp"
         android:background="@android:color/transparent"
         />
 
@@ -401,7 +413,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="305dp"
-        android:layout_marginTop="670dp"/>
+        android:layout_marginTop="690dp"/>
 
 
 

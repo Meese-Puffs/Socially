@@ -17,10 +17,17 @@ class NinthActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.ninth_activity)
 
-        val callButton = findViewById<TextView>(R.id.callButton)
+        val callButton : Button = findViewById(R.id.callButton)
 
         callButton.setOnClickListener{
             val intent = Intent(this, TenthActivity::class.java)
+            startActivity(intent)
+        }
+
+        val backButton : Button = findViewById(R.id.backButton)
+
+        backButton.setOnClickListener{
+            val intent = Intent(this, EighthActivity::class.java)
             startActivity(intent)
         }
 

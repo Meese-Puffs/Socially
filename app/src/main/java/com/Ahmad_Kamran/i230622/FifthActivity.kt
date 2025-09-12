@@ -33,6 +33,68 @@ class FifthActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val likesButton: Button = findViewById(R.id.likesButton)
+
+        likesButton.setOnClickListener {
+            val intent = Intent(this, EleventhActivity::class.java)
+            startActivity(intent)
+        }
+
+        val profileButton: Button = findViewById(R.id.profileButton)
+
+        profileButton.setOnClickListener {
+            val intent = Intent(this, ThirteenthActivity::class.java)
+            startActivity(intent)
+        }
+
+        val story1Button: Button = findViewById(R.id.story1Button)
+
+        story1Button.setOnClickListener {
+            val intent = Intent(this, SeventeenthActivity::class.java)
+            startActivity(intent)
+        }
+
+        val story2Button: Button = findViewById(R.id.story2Button)
+
+        story2Button.setOnClickListener {
+            val intent = Intent(this, SeventeenthActivity::class.java)
+            startActivity(intent)
+        }
+
+        val story3Button: Button = findViewById(R.id.story3Button)
+
+        story3Button.setOnClickListener {
+            val intent = Intent(this, SeventeenthActivity::class.java)
+            startActivity(intent)
+        }
+
+        val story4Button: Button = findViewById(R.id.story4Button)
+
+        story4Button.setOnClickListener {
+            val intent = Intent(this, SeventeenthActivity::class.java)
+            startActivity(intent)
+        }
+
+        val cameraButton: Button = findViewById(R.id.camerabutton)
+
+        cameraButton.setOnClickListener {
+            val intent = Intent(this, TwentiethActivity::class.java)
+            startActivity(intent)
+        }
+
+        val profButton: Button = findViewById(R.id.userProf)
+
+        profButton.setOnClickListener {
+            val intent = Intent(this, TwentyFirstActivity::class.java)
+            startActivity(intent)
+        }
+
+        val reelButton: Button = findViewById(R.id.reelsButton)
+
+        reelButton.setOnClickListener {
+            val intent = Intent(this, SixteenthActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 }

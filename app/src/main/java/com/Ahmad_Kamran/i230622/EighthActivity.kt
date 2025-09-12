@@ -66,6 +66,13 @@ class EighthActivity : AppCompatActivity(){
             startActivity(intent)
         }
 
+        val cameraButton: Button = findViewById(R.id.CameraButton)
+
+        cameraButton.setOnClickListener {
+            val intent = Intent(this, TwentiethActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
 }
