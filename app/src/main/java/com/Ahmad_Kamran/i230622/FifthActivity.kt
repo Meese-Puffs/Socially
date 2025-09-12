@@ -26,6 +26,13 @@ class FifthActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val messageButton: Button = findViewById(R.id.messagebutton)
+
+        messageButton.setOnClickListener {
+            val intent = Intent(this, EighthActivity::class.java)
+            startActivity(intent)
+        }
+
 
     }
 }

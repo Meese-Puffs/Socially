@@ -297,7 +297,7 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="670dp"
-        android:background="@android:color/black"
+        android:background="@android:color/transparent"
         />
 
     <ImageView

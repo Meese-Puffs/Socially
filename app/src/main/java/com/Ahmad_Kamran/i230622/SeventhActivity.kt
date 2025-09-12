@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.widget.EditText
 import android.widget.ImageView
 import android.text.InputType
+import android.widget.Button
 import android.widget.TextView
 import android.widget.LinearLayout
 import androidx.core.view.ViewCompat
@@ -15,5 +16,20 @@ class SeventhActivity : AppCompatActivity(){
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.seventh_activity)
+
+            val homeButton = findViewById<Button>(R.id.homebutton)
+            homeButton.setOnClickListener {
+                val intent = Intent(this, FifthActivity::class.java)
+                startActivity(intent)
+            }
+
+            val searchButton: Button = findViewById(R.id.searchbutton)
+
+            searchButton.setOnClickListener {
+                val intent = Intent(this, SixthActivity::class.java)
+                startActivity(intent)
+            }
+
         }
+
     }
