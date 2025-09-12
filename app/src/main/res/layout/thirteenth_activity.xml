@@ -59,8 +59,19 @@
         app:tint="@color/light_magenta"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginLeft="322dp"
+        android:layout_marginLeft="312dp"
         android:layout_marginTop="13dp"/>
+
+            <Button
+                android:id="@+id/logOutButton"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:background="@android:color/transparent"
+                android:layout_marginLeft="305dp"
+                android:layout_marginTop="11dp"
+                />
 
     <TextView
         android:id="@+id/name"

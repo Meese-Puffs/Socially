@@ -7,11 +7,18 @@ import androidx.appcompat.app.AppCompatActivity
 import android.widget.TextView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.auth.FirebaseAuth
+
 
 class ThirteenthActivity : AppCompatActivity() {
+
+    lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.thirteenth_activity)
+
+        auth = FirebaseAuth.getInstance()
 
         val editButton: Button = findViewById(R.id.editButton)
 
@@ -66,6 +73,16 @@ class ThirteenthActivity : AppCompatActivity() {
         likesButton.setOnClickListener {
             val intent = Intent(this, EleventhActivity::class.java)
             startActivity(intent)
+        }
+
+        val logOutButton: Button = findViewById(R.id.logOutButton)
+
+        logOutButton.setOnClickListener {
+            auth.signOut()
+            val intent = Intent(this, FourthActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            finish()
         }
 
     }

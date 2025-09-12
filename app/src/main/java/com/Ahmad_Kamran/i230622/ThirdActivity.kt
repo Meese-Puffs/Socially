@@ -32,7 +32,7 @@ class ThirdActivity : AppCompatActivity() {
         val LogIn = findViewById<TextView>(R.id.log_in)
 
         LogIn.setOnClickListener{
-            val intent = Intent(this, FourthActivity::class.java)
+            val intent = Intent(this, FifthActivity::class.java)
             startActivity(intent)
         }
 
