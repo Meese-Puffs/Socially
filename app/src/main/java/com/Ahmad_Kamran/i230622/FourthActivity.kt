@@ -22,6 +22,13 @@ class FourthActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val LogIn = findViewById<TextView>(R.id.log_in)
+
+        LogIn.setOnClickListener{
+            val intent = Intent(this, FifthActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
 
