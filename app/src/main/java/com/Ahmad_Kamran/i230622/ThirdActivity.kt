@@ -36,5 +36,17 @@ class ThirdActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val prefs = getSharedPreferences("UserPrefs", MODE_PRIVATE)
+        val cachedUsername = prefs.getString("username", "Loading...")
+
+        findViewById<TextView>(R.id.name).text = cachedUsername
+
+        UserUtils.fetchUsername { username ->
+            if (username != null) {
+                findViewById<TextView>(R.id.name).text = username
+                prefs.edit().putString("username", username).apply()
+            }
+        }
+
     }
 }

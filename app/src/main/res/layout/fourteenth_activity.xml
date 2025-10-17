@@ -201,7 +201,7 @@
         android:id="@+id/Switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Switch to Proffesional account"
+        android:text="Switch to Professional account"
         android:textSize="17sp"
         android:textColor="@color/light_magenta"
         app:layout_constraintTop_toTopOf="parent"

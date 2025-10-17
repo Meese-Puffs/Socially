@@ -25,10 +25,8 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        // ✅ Initialize Firebase Authentication
         auth = FirebaseAuth.getInstance()
 
-        // ✅ Wait 5 seconds, then decide where to go
         Handler(Looper.getMainLooper()).postDelayed({
             val currentUser = auth.currentUser
 
@@ -42,7 +40,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
 
-            finish() // Close splash screen so user can’t go back to it
-        }, 5000) // 5000ms = 5 seconds
+            finish()
+        }, 3000)
     }
 }
