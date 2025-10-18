@@ -1,100 +1,49 @@
 package com.Ahmad_Kamran.i230622
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import android.widget.TextView
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.*
 
 class FifthActivity : AppCompatActivity() {
+
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: PostAdapter
+    private lateinit var databaseRef: DatabaseReference
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fifth_activity)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.fifth_menu)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        recyclerView = findViewById(R.id.recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        adapter = PostAdapter(listOf())
+        recyclerView.adapter = adapter
 
-        val searchButton: Button = findViewById(R.id.searchbutton)
+        // 🔥 connect to your "posts" node in Firebase
+        databaseRef = FirebaseDatabase.getInstance().getReference("posts")
 
-        searchButton.setOnClickListener {
-            val intent = Intent(this, SixthActivity::class.java)
-            startActivity(intent)
-        }
+        // 👇 read safely
+        databaseRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val postsList = mutableListOf<Post>()
+                for (postSnap in snapshot.children) {
+                    try {
+                        val post = postSnap.getValue(Post::class.java)
+                        if (post != null) postsList.add(post)
+                    } catch (e: Exception) {
+                        Log.e("FirebaseError", "Error parsing post: ${e.message}")
+                    }
+                }
+                adapter = PostAdapter(postsList)
+                recyclerView.adapter = adapter
+            }
 
-        val messageButton: Button = findViewById(R.id.messagebutton)
-
-        messageButton.setOnClickListener {
-            val intent = Intent(this, EighthActivity::class.java)
-            startActivity(intent)
-        }
-
-        val likesButton: Button = findViewById(R.id.likesButton)
-
-        likesButton.setOnClickListener {
-            val intent = Intent(this, EleventhActivity::class.java)
-            startActivity(intent)
-        }
-
-        val profileButton: Button = findViewById(R.id.profileButton)
-
-        profileButton.setOnClickListener {
-            val intent = Intent(this, ThirteenthActivity::class.java)
-            startActivity(intent)
-        }
-
-        val story1Button: Button = findViewById(R.id.story1Button)
-
-        story1Button.setOnClickListener {
-            val intent = Intent(this, SeventeenthActivity::class.java)
-            startActivity(intent)
-        }
-
-        val story2Button: Button = findViewById(R.id.story2Button)
-
-        story2Button.setOnClickListener {
-            val intent = Intent(this, SeventeenthActivity::class.java)
-            startActivity(intent)
-        }
-
-        val story3Button: Button = findViewById(R.id.story3Button)
-
-        story3Button.setOnClickListener {
-            val intent = Intent(this, SeventeenthActivity::class.java)
-            startActivity(intent)
-        }
-
-        val story4Button: Button = findViewById(R.id.story4Button)
-
-        story4Button.setOnClickListener {
-            val intent = Intent(this, SeventeenthActivity::class.java)
-            startActivity(intent)
-        }
-
-        val cameraButton: Button = findViewById(R.id.camerabutton)
-
-        cameraButton.setOnClickListener {
-            val intent = Intent(this, TwentiethActivity::class.java)
-            startActivity(intent)
-        }
-
-        val profButton: Button = findViewById(R.id.userProf)
-
-        profButton.setOnClickListener {
-            val intent = Intent(this, TwentyFirstActivity::class.java)
-            startActivity(intent)
-        }
-
-        val reelButton: Button = findViewById(R.id.reelsButton)
-
-        reelButton.setOnClickListener {
-            val intent = Intent(this, SixteenthActivity::class.java)
-            startActivity(intent)
-        }
-
+            override fun onCancelled(error: DatabaseError) {
+                Log.e("FirebaseError", error.message)
+            }
+        })
     }
 }
