@@ -37,14 +37,18 @@ android {
 }
 
 
+
+
 dependencies {
 
     implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
     implementation("com.google.firebase:firebase-auth")
-    implementation("com.google.firebase:firebase-database")
+    implementation("com.google.firebase:firebase-database:20.3.1")
     implementation("com.google.firebase:firebase-storage")
     implementation("com.google.firebase:firebase-firestore:25.1.1")
     implementation("com.google.firebase:firebase-messaging:24.0.0")
+    implementation("com.squareup.okhttp3:okhttp:4.11.0")
+    implementation ("io.agora.rtc:full-sdk:4.5.0")
 
 
     implementation(libs.androidx.core.ktx)

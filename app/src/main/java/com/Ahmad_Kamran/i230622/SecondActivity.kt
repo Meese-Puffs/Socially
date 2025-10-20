@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.database.FirebaseDatabase
+
+import com.google.firebase.messaging.FirebaseMessaging
 class SecondActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
@@ -88,5 +90,20 @@ class SecondActivity : AppCompatActivity() {
             val intent = Intent(this, FourthActivity::class.java)
             startActivity(intent)
         }
+
+        FirebaseMessaging.getInstance().token.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val token = task.result
+                val uid = FirebaseAuth.getInstance().currentUser?.uid
+                if (uid != null) {
+                    FirebaseDatabase.getInstance().getReference("users")
+                        .child(uid)
+                        .child("fcmToken")
+                        .setValue(token)
+                }
+            }
+        }
+
+
     }
 }

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@color/white">
 
+    <!-- ===== Header Section ===== -->
     <ImageView
         android:id="@+id/status_bar"
         android:layout_width="0dp"
@@ -13,8 +14,7 @@
         android:src="@drawable/status_bar"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="20dp"
-        />
+        android:layout_marginTop="20dp" />
 
     <ImageView
         android:id="@+id/chevron"
@@ -26,21 +26,6 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="85dp"/>
-
-    <TextView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="@drawable/blue_circle"
-        android:backgroundTint="@color/light_magenta"
-        android:gravity="center"
-        android:text="IS"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="77dp"/>
 
     <TextView
         android:id="@+id/name"
@@ -64,6 +49,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginLeft="270dp"
+        android:layout_marginTop="82dp"/>
+
+    <ImageView
+        android:id="@+id/info"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/info"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="310dp"
         android:layout_marginTop="82dp"/>
 
     <Button
@@ -90,57 +85,49 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="80dp"/>
 
-    <ImageView
-        android:id="@+id/info"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:src="@drawable/info"
-        app:layout_constraintTop_toTopOf="parent"
+    <!-- ===== Scrollable Chat Section ===== -->
+    <ScrollView
+        android:id="@+id/chatScroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="130dp"
+        android:layout_marginBottom="150dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/name"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginLeft="310dp"
-        android:layout_marginTop="82dp"/>
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <TextView
-        android:id="@+id/time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="4:49 PM"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginLeft="165dp"
-        android:layout_marginTop="585dp"/>
+        <LinearLayout
+            android:id="@+id/chatContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp" />
+    </ScrollView>
 
-    <TextView
-        android:id="@+id/chat"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:paddingLeft="25dp"
-        android:paddingTop="10dp"
-        android:text="Hello"
-        android:textColor="@color/white"
-        android:background="@drawable/curved_rectangle"
-        android:backgroundTint="@color/light_magenta"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginLeft="270dp"
-        android:layout_marginTop="620dp"/>
-
-    <TextView
+    <!-- ===== Existing Message Input Section (Unchanged Layout) ===== -->
+    <EditText
         android:id="@+id/chatbox"
         android:layout_width="340dp"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
+        android:minHeight="40dp"
+        android:maxHeight="120dp"
         android:paddingLeft="45dp"
-        android:paddingTop="10dp"
-        android:text="Message..."
+        android:paddingTop="5dp"
+        android:hint="Message..."
         android:textColor="@color/dark_grey"
         android:background="@drawable/curved_rectangle"
         android:backgroundTint="@color/pink"
-        app:layout_constraintTop_toTopOf="parent"
+        android:inputType="textMultiLine"
+        android:scrollbars="vertical"
+        android:textColorHint="@color/dark_grey"
+        android:gravity="top|start"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="670dp"/>
+        android:layout_marginBottom="70dp" />
+
 
     <ImageView
         android:id="@+id/CameraCircle"
@@ -153,24 +140,24 @@
         android:scaleType="centerCrop"
         android:clipToOutline="true"
         android:outlineProvider="background"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="675dp"/>
+        android:layout_marginBottom="75dp"/>
 
     <ImageView
-        android:id="@+id/mic"
+        android:id="@+id/share"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:src="@drawable/mic"
+        android:src="@drawable/share"
         android:padding="5dp"
         android:scaleType="centerCrop"
         android:clipToOutline="true"
         android:outlineProvider="background"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="250dp"
-        android:layout_marginTop="675dp"/>
+        android:layout_marginBottom="75dp"/>
 
     <ImageView
         android:id="@+id/picture"
@@ -181,10 +168,10 @@
         android:scaleType="centerCrop"
         android:clipToOutline="true"
         android:outlineProvider="background"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="280dp"
-        android:layout_marginTop="675dp"/>
+        android:layout_marginBottom="75dp"/>
 
     <ImageView
         android:id="@+id/stickers"
@@ -195,22 +182,20 @@
         android:scaleType="centerCrop"
         android:clipToOutline="true"
         android:outlineProvider="background"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="310dp"
-        android:layout_marginTop="675dp"/>
+        android:layout_marginBottom="75dp"/>
 
     <ImageView
+        android:id="@+id/home_indicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/home_indicator"
         app:tint="@color/light_magenta"
         android:layout_marginBottom="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="750dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginLeft="110dp"/>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
